@@ -20,7 +20,7 @@ module.exports = class controllerPrioridades {
             ]
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})

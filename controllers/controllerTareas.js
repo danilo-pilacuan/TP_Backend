@@ -23,7 +23,7 @@ module.exports = class controllerTareas {
             ]
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})

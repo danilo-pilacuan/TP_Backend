@@ -20,7 +20,7 @@ module.exports = class controllerEstadoMantenimiento {
             ]
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})

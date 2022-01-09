@@ -21,7 +21,7 @@ module.exports = class controllerTrabajadores {
             ]
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})

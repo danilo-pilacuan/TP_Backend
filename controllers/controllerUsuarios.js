@@ -65,7 +65,7 @@ module.exports = class controllerUsuarios {
             where:{ id : req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})

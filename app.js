@@ -18,7 +18,7 @@ const modeloTarea = require('./models').Tarea;
 
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000','http://localhost:8080','http://localhost:4200']
+    origin: ['http://localhost:3000','http://localhost:8080','http://localhost:4200','http://localhost:8082']
 }))
 app.use(cookieParser())
 //app.use(morgan('dev'))
