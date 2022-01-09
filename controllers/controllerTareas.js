@@ -33,10 +33,16 @@ module.exports = class controllerTareas {
 
     static async getTareaById(req,res){
         modeloTarea.findOne({
-            where:{ id : req.params.id }
+            where:{ id : req.params.id },
+            include : [
+                {model:modeloActivo},
+                {model:modeloTrabajador},
+                {model:modeloPeriodicidad},
+                {model:modeloEstadoMantenimiento}
+            ]
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
