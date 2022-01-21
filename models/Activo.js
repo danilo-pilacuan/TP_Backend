@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       }),
       Activo.hasMany(models.Tarea,{
         foreignKey: 'idActivo'
+      }),
+      Activo.hasMany(models.Imagen,{
+        foreignKey: 'idActivo'
       })
     }
   };

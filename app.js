@@ -142,6 +142,7 @@ app.use('/api/estadomantenimiento',require('./routes/routesEstadoMantenimiento')
 app.use('/api/periodicidades',require('./routes/routesPeriodicidades'))
 app.use('/api/prioridades',require('./routes/routesPrioridades'))
 app.use('/api/tareas',require('./routes/routesTareas'))
+app.use('/api/tipomantenimiento',require('./routes/routesTipoMantenimiento'))
 app.use('/api/trabajadores',require('./routes/routesTrabajadores'))
 app.use('/api/usuarios',require('./routes/routesUsuarios'))
 

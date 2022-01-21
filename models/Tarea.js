@@ -26,17 +26,22 @@ module.exports = (sequelize, DataTypes) => {
       Tarea.belongsTo(models.EstadoMantenimiento, {
         foreignKey: 'idEstadoMantenimiento',
         target_key: 'id'
+      }),
+      Tarea.belongsTo(models.TipoMantenimiento, {
+        foreignKey: 'idTipoMantenimiento',
+        target_key: 'id'
       })
     }
   };
   Tarea.init({
     descripcion: DataTypes.STRING,
-    mantenimiento: DataTypes.STRING,
-    idTrabajadorResponsable: DataTypes.INTEGER,
+    fechaInicio: DataTypes.DATE,
     semanaInicial: DataTypes.INTEGER,
+    idTrabajadorResponsable: DataTypes.INTEGER,
     idPeriodicidad: DataTypes.INTEGER,
     idEstadoMantenimiento: DataTypes.INTEGER,
-    idActivo: DataTypes.INTEGER
+    idActivo: DataTypes.INTEGER,
+    idTipoMantenimiento: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Tarea',

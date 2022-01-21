@@ -8,7 +8,7 @@ const modeloActivo = require('../models').Activo;
 const modeloPeriodicidad = require('../models').Periodicidad;
 const modeloEstadoMantenimiento = require('../models').EstadoMantenimiento;
 const modeloTarea = require('../models').Tarea;
-
+const modeloTipoMantenimiento = require('../models').TipoMantenimiento;
 // const bcrypt = require("bcryptjs");
 // const jwt = require("jsonwebtoken");
 module.exports = class controllerTareas {
@@ -19,7 +19,8 @@ module.exports = class controllerTareas {
                 {model:modeloActivo},
                 {model:modeloTrabajador},
                 {model:modeloPeriodicidad},
-                {model:modeloEstadoMantenimiento}
+                {model:modeloEstadoMantenimiento},
+                {model:modeloTipoMantenimiento}
             ]
         })
         .then((data)=>{
@@ -38,7 +39,8 @@ module.exports = class controllerTareas {
                 {model:modeloActivo},
                 {model:modeloTrabajador},
                 {model:modeloPeriodicidad},
-                {model:modeloEstadoMantenimiento}
+                {model:modeloEstadoMantenimiento},
+                {model:modeloTipoMantenimiento}
             ]
         })
         .then((data)=>{
