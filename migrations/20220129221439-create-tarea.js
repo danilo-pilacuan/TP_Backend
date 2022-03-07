@@ -11,21 +11,21 @@ module.exports = {
       descripcion: {
         type: Sequelize.STRING
       },
-      fechaInicio: {
-        type: Sequelize.DATE
-      },
-      semanaInicial: {
-        type: Sequelize.INTEGER
-      },
-      idTrabajadorResponsable: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Trabajadors',
-          key: 'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
+      // fechaInicio: {
+      //   type: Sequelize.DATE
+      // },
+      // semanaInicial: {
+      //   type: Sequelize.INTEGER
+      // },
+      // idTrabajadorResponsable: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'Trabajadors',
+      //     key: 'id'
+      //   },
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE'
+      // },
       idPeriodicidad: {
         type: Sequelize.INTEGER,
         references: {
@@ -44,15 +44,15 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       },
-      idActivo: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Activos',
-          key: 'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      },
+      // idActivo: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'Activos',
+      //     key: 'id'
+      //   },
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE'
+      // },
       idTipoMantenimiento: {
         type: Sequelize.INTEGER,
         references: {
@@ -61,6 +61,24 @@ module.exports = {
         },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
+      },
+      // idOrdenTrabajo: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'OrdenTrabajos',
+      //     key: 'id'
+      //   },
+      //   onDelete: 'CASCADE',
+      //   onUpdate: 'CASCADE'
+      // },
+      numeroResponsables: {
+        type: Sequelize.INTEGER
+      },
+      horasHombre: {
+        type: Sequelize.INTEGER
+      },
+      costoHora: {
+        type: Sequelize.DECIMAL(10,2)
       },
       createdAt: {
         allowNull: false,

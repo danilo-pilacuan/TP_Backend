@@ -89,6 +89,53 @@ module.exports = class controllerUsuarios {
             res.json({error:error})
         })
     }
+    static async cambiarContrasenia(req,res){
+        console.log("sdassd")
+        modeloUsuario.findOne({
+            where:{ id:req.params.id}
+        })
+        .then((data)=>{
+            // if(!await bcrypt.compare(req.body.password,data.password)){
+            //     return res.status(400).send({message: "invalid credentials"});
+            // }
+            // else
+            // {
+            //     const token = jwt.sign({_id: data.id}, "secret") //colocar secret en archivo .env
+            //     res.cookie('jwt',token,{
+            //         httpOnly: true,
+            //         maxAge: 24*60*60*1000 //1 dia
+            //     })
+            //     res.status(200).send({message: "success"});
+            // }
+            //res.json({resultado:data})
+            //console.log("formpass: "+req.body.contrasenia)
+            //console.log("userpass: "+data.contrasenia)
+
+            if(req.body.contrasenia==data.contrasenia)
+            {
+                modeloUsuario.update({contrasenia:req.body.contraseniaNueva},{
+                    where: { id: req.params.id }
+                })
+                .then((data)=>{
+                    res.status(200).send({resultado: "success"});
+                })
+                .catch((error)=>{
+                    res.json({error:error})
+                })
+                
+                
+            }
+            else
+            {
+                return res.status(400).send({error: "No match"});
+            }
+        })
+        .catch((error)=>{
+            return res.status(404).send({error: "User not found"});
+            //res.json({error:error})
+        })
+
+    }
 
     static async deleteUsuario(req,res){
         modeloUsuario.destroy({

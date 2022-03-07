@@ -14,10 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       Trabajador.belongsTo(models.Area,{
         foreignKey: 'idArea',
         target_key: 'id'
-      }),
-      Trabajador.hasMany(models.Tarea,{
-        foreignKey: 'idTrabajadorResponsable'
       })
+      //,
+      // Trabajador.hasMany(models.Tarea,{
+      //   foreignKey: 'idTrabajadorResponsable'
+      // })
     }
   };
   Trabajador.init({

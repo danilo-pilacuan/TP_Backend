@@ -8,6 +8,7 @@ const modeloActivo = require('../models').Activo;
 const modeloPeriodicidad = require('../models').Periodicidad;
 const modeloEstadoMantenimiento = require('../models').EstadoMantenimiento;
 const modeloTarea = require('../models').Tarea;
+const modeloImagen = require('../models').Imagen
 
 // const bcrypt = require("bcryptjs");
 // const jwt = require("jsonwebtoken");
@@ -19,7 +20,7 @@ module.exports = class controllerActivos {
                 {model:modeloArea},
                 {model:modeloPrioridad},
                 {model:modeloCategoria,as : 'Categoria'},
-                {model:modeloTarea}
+                {model:modeloImagen}
             ]
         })
         .then((data)=>{

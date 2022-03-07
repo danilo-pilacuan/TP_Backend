@@ -24,10 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         target_key: 'id',
         as: 'Categoria'
       }),
-      Activo.hasMany(models.Tarea,{
+      Activo.hasMany(models.Imagen,{
         foreignKey: 'idActivo'
       }),
-      Activo.hasMany(models.Imagen,{
+      Activo.hasMany(models.Manual,{
         foreignKey: 'idActivo'
       })
     }

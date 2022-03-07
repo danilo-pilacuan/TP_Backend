@@ -16,8 +16,7 @@ module.exports = class controllerTrabajadores {
     static async getTrabajadores(req,res){
         modeloTrabajador.findAll({
             include : [
-                {model:modeloArea},
-                {model:modeloTarea}
+                {model:modeloArea}
             ]
         })
         .then((data)=>{
@@ -34,7 +33,7 @@ module.exports = class controllerTrabajadores {
             where:{ id : req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
@@ -44,7 +43,7 @@ module.exports = class controllerTrabajadores {
     static async createTrabajador(req,res){
         modeloTrabajador.create(req.body)
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
@@ -56,7 +55,7 @@ module.exports = class controllerTrabajadores {
             where: { id: req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
@@ -68,7 +67,7 @@ module.exports = class controllerTrabajadores {
             where:{ id : req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})

@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Tarea.belongsTo(models.Activo, {
-        foreignKey: 'idActivo',
-        target_key: 'id'
-      }),
-      Tarea.belongsTo(models.Trabajador, {
-        foreignKey: 'idTrabajadorResponsable',
-        target_key: 'id'
-      }),
+      // Tarea.belongsTo(models.Activo, {
+      //   foreignKey: 'idActivo',
+      //   target_key: 'id'
+      // }),
+      // Tarea.belongsTo(models.Trabajador, {
+      //   foreignKey: 'idTrabajadorResponsable',
+      //   target_key: 'id'
+      // }),
       Tarea.belongsTo(models.Periodicidad, {
         foreignKey: 'idPeriodicidad',
         target_key: 'id'
@@ -31,17 +31,24 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'idTipoMantenimiento',
         target_key: 'id'
       })
+      Tarea.belongsToMany(models.OrdenTrabajo, {
+        foreignKey: 'idTarea', 
+        through: 'Orden_Tarea'
+        // ,
+        // as: 'OrdenTrabajos' 
+      });
     }
   };
   Tarea.init({
     descripcion: DataTypes.STRING,
-    fechaInicio: DataTypes.DATE,
-    semanaInicial: DataTypes.INTEGER,
-    idTrabajadorResponsable: DataTypes.INTEGER,
+    //fechaInicio: DataTypes.DATE,
+    //semanaInicial: DataTypes.INTEGER,
     idPeriodicidad: DataTypes.INTEGER,
     idEstadoMantenimiento: DataTypes.INTEGER,
-    idActivo: DataTypes.INTEGER,
-    idTipoMantenimiento: DataTypes.INTEGER
+    idTipoMantenimiento: DataTypes.INTEGER,
+    numeroResponsables: DataTypes.INTEGER,
+    horasHombre: DataTypes.INTEGER,
+    costoHora: DataTypes.DECIMAL(10,2),
   }, {
     sequelize,
     modelName: 'Tarea',

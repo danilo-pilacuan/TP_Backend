@@ -33,7 +33,7 @@ module.exports = class controllerEdificios {
             where:{ id : req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
@@ -43,7 +43,7 @@ module.exports = class controllerEdificios {
     static async createEdificio(req,res){
         modeloEdificio.create(req.body)
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
@@ -55,7 +55,7 @@ module.exports = class controllerEdificios {
             where: { id: req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
@@ -67,7 +67,7 @@ module.exports = class controllerEdificios {
             where:{ id : req.params.id }
         })
         .then((data)=>{
-            res.json({datos:data})
+            res.json({resultado:data})
         })
         .catch((error)=>{
             res.json({error:error})
