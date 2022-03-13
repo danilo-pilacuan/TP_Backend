@@ -13,6 +13,7 @@ const modeloTarea = require('../models').Tarea;
 const modeloTaller = require('../models').Taller;
 const modeloImagen = require('../models').Imagen
 const modeloManual = require('../models').Manual
+const modeloMaterial = require('../models').Material
 const modeloOrdenTrabajo = require('../models').OrdenTrabajo
 const modeloOrdenTarea = require('../models').Orden_Tarea
 const modeloOrdenMaterial = require('../models').Orden_Material
@@ -37,12 +38,10 @@ module.exports = class controllerOrdenMaterial {
     static async getOrdenMateriales(req,res){
         
         modeloOrdenMaterial.findAll({
-            // include : [
-            //      {model:modeloActivo},
-            //      {model:modeloTaller},
-            //      {model:modeloArea},
-            //      {model:modeloTrabajador}
-            // ]
+            include : [
+                {model:modeloMaterial},
+                {model:modeloOrdenTrabajo}
+            ]
         })
         .then((data)=>{
             res.json({resultado:data})
@@ -57,7 +56,7 @@ module.exports = class controllerOrdenMaterial {
         modeloOrdenMaterial.findAll({
             where:{idOrden:req.params.id},
             include : [
-                 {model:modeloTarea},
+                 {model:modeloMaterial},
                  {model:modeloOrdenTrabajo}
             ]
         })
