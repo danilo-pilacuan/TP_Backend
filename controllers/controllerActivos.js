@@ -39,9 +39,7 @@ module.exports = class controllerActivos {
                 {model:modeloArea},
                 {model:modeloPrioridad},
                 {model:modeloCategoria,as : 'Categoria'},
-                {model:modeloTarea,include:[{model:modeloTrabajador},
-                                            {model:modeloPeriodicidad},
-                                            {model:modeloEstadoMantenimiento}]}
+                {model:modeloImagen}
             ]
         })
         .then((data)=>{
