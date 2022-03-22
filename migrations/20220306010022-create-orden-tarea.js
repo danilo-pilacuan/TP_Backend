@@ -32,6 +32,43 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       },
+      idPeriodicidad: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Periodicidads',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
+      idEstadoMantenimiento: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'EstadoMantenimientos',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
+      idTipoMantenimiento: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'TipoMantenimientos',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
+      numeroResponsables: {
+        type: Sequelize.INTEGER
+      },
+      horasHombre: {
+        type: Sequelize.DECIMAL(10,2)
+      },
+      costoHora: {
+        type: Sequelize.DECIMAL(10,2)
+      },
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

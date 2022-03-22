@@ -54,17 +54,20 @@ module.exports = class controllerManualess {
     }
 
     static async createManual(req,res){
-        
+        console.log("Create")
+        console.log(req.body)
+        console.log("Create1")
         var manual = req.body;
-       
+        console.log("Create2")
         var manualname = req.file.filename;
-       
+        console.log("Create3")
         manual.url = manualname;
-       
+        console.log("Create4")
 
         modeloManual.create(manual)
         .then((data)=>{
             res.json({resultado:data})
+            console.log("Create5")
         })
         .catch((error)=>{
             res.json({error:error})

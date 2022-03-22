@@ -42,13 +42,7 @@ module.exports = class controllerOrdenTrabajo {
                  {model:modeloArea},
                  {model:modeloTrabajador},
                  {model:modeloMaterial},
-                 {model:modeloTarea
-                  ,include:[
-                      {model:modeloPeriodicidad},
-                      {model:modeloEstadoMantenimiento},
-                      {model:modeloTipoMantenimiento},
-                  ]  
-                 },
+                 {model:modeloTarea},
            ]
         })
         .then((data)=>{
@@ -69,13 +63,7 @@ module.exports = class controllerOrdenTrabajo {
                  {model:modeloArea},
                  {model:modeloTrabajador},
                  {model:modeloMaterial},
-                 {model:modeloTarea
-                  ,include:[
-                      {model:modeloPeriodicidad},
-                      {model:modeloEstadoMantenimiento},
-                      {model:modeloTipoMantenimiento},
-                  ]  
-                 },
+                 {model:modeloTarea},
             ],
             where:{id:1},
             order:['createdAt']
@@ -98,13 +86,7 @@ module.exports = class controllerOrdenTrabajo {
                  {model:modeloArea},
                  {model:modeloTrabajador},
                  {model:modeloMaterial},
-                 {model:modeloTarea
-                  ,include:[
-                      {model:modeloPeriodicidad},
-                      {model:modeloEstadoMantenimiento},
-                      {model:modeloTipoMantenimiento},
-                  ]  
-                 },
+                 {model:modeloTarea},
             ],
             order:['createdAt']
         })
@@ -128,14 +110,7 @@ module.exports = class controllerOrdenTrabajo {
                  {model:modeloArea},
                  {model:modeloTrabajador},
                  {model:modeloMaterial},
-                 {model:modeloTarea
-                  ,include:[
-                    //{model:modeloOrdenTarea},
-                      {model:modeloPeriodicidad},
-                      {model:modeloEstadoMantenimiento},
-                      {model:modeloTipoMantenimiento},
-                  ]  
-                 },
+                 {model:modeloOrdenTarea,include:[{model:modeloTarea},{model:modeloPeriodicidad},{model:modeloEstadoMantenimiento},{model:modeloTipoMantenimiento}]},
            ]
         })
         .then((data)=>{

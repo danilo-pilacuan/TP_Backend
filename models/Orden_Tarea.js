@@ -17,7 +17,18 @@ module.exports = (sequelize, DataTypes) => {
       // Orden_Tarea.hasMany(models.Tarea,{
       //   foreignKey: 'idTarea'
       // })
-
+      Orden_Tarea.belongsTo(models.Periodicidad, {
+        foreignKey: 'idPeriodicidad',
+        target_key: 'id'
+      }),
+      Orden_Tarea.belongsTo(models.EstadoMantenimiento, {
+        foreignKey: 'idEstadoMantenimiento',
+        target_key: 'id'
+      }),
+      Orden_Tarea.belongsTo(models.TipoMantenimiento, {
+        foreignKey: 'idTipoMantenimiento',
+        target_key: 'id'
+      }),
       Orden_Tarea.belongsTo(models.Tarea, {
         foreignKey: 'idTarea',
         target_key: 'id'
@@ -36,7 +47,13 @@ module.exports = (sequelize, DataTypes) => {
     fechaSolicitud: DataTypes.DATE,
     semanaInicial: DataTypes.INTEGER,
     idTarea: DataTypes.INTEGER,
-    idOrden: DataTypes.INTEGER
+    idOrden: DataTypes.INTEGER,
+    idPeriodicidad: DataTypes.INTEGER,
+    idEstadoMantenimiento: DataTypes.INTEGER,
+    idTipoMantenimiento: DataTypes.INTEGER,
+    numeroResponsables: DataTypes.INTEGER,
+    horasHombre: DataTypes.DECIMAL(10,2),
+    costoHora: DataTypes.DECIMAL(10,2),
   }, {
     sequelize,
     modelName: 'Orden_Tarea',

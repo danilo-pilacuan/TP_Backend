@@ -7,7 +7,7 @@ router.get("/:id",controllerMateriales.getMaterialById);
 router.get("/ordenTrabajo/:id",controllerMateriales.getMaterialByOrdenTrabajoId);
 router.post("/",controllerMateriales.createMaterial);
 router.patch("/:id",controllerMateriales.editMaterial);
-router.delete("/:id",controllerMateriales.editMaterial);
+router.delete("/:id",controllerMateriales.deleteMaterial);
 
 module.exports = router;
 

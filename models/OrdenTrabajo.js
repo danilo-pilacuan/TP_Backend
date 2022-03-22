@@ -31,6 +31,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'idSolicitante',
         target_key: 'id'
       })
+
+      OrdenTrabajo.hasMany(models.Orden_Tarea, {
+        foreignKey: 'idOrden'
+      })
+
+      OrdenTrabajo.hasMany(models.Orden_Material, {
+        foreignKey: 'idOrden'
+      })
       
       OrdenTrabajo.belongsToMany(models.Tarea, {
         foreignKey: 'idOrden', 
@@ -45,6 +53,8 @@ module.exports = (sequelize, DataTypes) => {
         // ,
         // as: 'OrdenTrabajos' 
       });
+
+      
 
     }
   };

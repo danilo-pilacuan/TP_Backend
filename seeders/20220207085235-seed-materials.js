@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     return queryInterface.bulkInsert('materials', [
+     return queryInterface.bulkInsert('Materials', [
       {
         descripcion: 'Aceite Lubricante DW-40',
         //cantidad: 0.5,

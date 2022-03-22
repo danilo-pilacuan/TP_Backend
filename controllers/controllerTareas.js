@@ -23,9 +23,6 @@ module.exports = class controllerTareas {
     static async getTareas(req,res){
         modeloTarea.findAll({
             include : [
-                {model:modeloPeriodicidad},
-                {model:modeloEstadoMantenimiento},
-                {model:modeloTipoMantenimiento},
                 {model:modeloOrdenTrabajo}
                 
             ]
@@ -61,9 +58,6 @@ module.exports = class controllerTareas {
         modeloTarea.findOne({
             where:{ id : req.params.id },
             include : [
-                {model:modeloPeriodicidad},
-                {model:modeloEstadoMantenimiento},
-                {model:modeloTipoMantenimiento},
                 {model:modeloOrdenTrabajo}
             ]
         })
@@ -79,9 +73,6 @@ module.exports = class controllerTareas {
         modeloTarea.findOne({
             where:{ id : req.params.id },
             include : [
-                {model:modeloPeriodicidad},
-                {model:modeloEstadoMantenimiento},
-                {model:modeloTipoMantenimiento},
                 {model:modeloOrdenTrabajo}
             ]
         })

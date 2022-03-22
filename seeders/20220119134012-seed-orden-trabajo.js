@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('ordenTrabajos', [
+    return queryInterface.bulkInsert('OrdenTrabajos', [
     {
       numero: '001',
       fechaOrden: new Date(),

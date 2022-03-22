@@ -8,6 +8,7 @@ const modeloActivo = require('../models').Activo;
 const modeloPeriodicidad = require('../models').Periodicidad;
 const modeloEstadoMantenimiento = require('../models').EstadoMantenimiento;
 const modeloTarea = require('../models').Tarea;
+const modeloOrdenTarea = require('../models').Orden_Tarea;
 const modeloTipoMantenimiento = require('../models').TipoMantenimiento;
 
 module.exports = class controllerTipoMantenimiento {
@@ -15,7 +16,7 @@ module.exports = class controllerTipoMantenimiento {
     static async getTiposMantenimiento(req,res){
         modeloTipoMantenimiento.findAll({
             include : [
-                {model:modeloTarea}
+                {model:modeloOrdenTarea}
             ]
         })
         .then((data)=>{
@@ -31,7 +32,7 @@ module.exports = class controllerTipoMantenimiento {
         modeloTipoMantenimiento.findOne({
             where:{ id : req.params.id },
             include : [
-                {model:modeloTipoMantenimiento}
+                {model:modeloOrdenTarea}
             ]
         })
         .then((data)=>{

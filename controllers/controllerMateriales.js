@@ -103,6 +103,7 @@ module.exports = class controllerMateriales {
     }
 
     static async deleteMaterial(req,res){
+        
         modeloMaterial.destroy({
             where:{id:req.params.id}
         })

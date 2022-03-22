@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     return queryInterface.bulkInsert('estadomantenimientos', [
+     return queryInterface.bulkInsert('EstadoMantenimientos', [
       {
         descripcion: 'Pendiente',
         createdAt: new Date(),

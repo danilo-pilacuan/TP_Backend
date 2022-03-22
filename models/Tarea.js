@@ -19,18 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       //   foreignKey: 'idTrabajadorResponsable',
       //   target_key: 'id'
       // }),
-      Tarea.belongsTo(models.Periodicidad, {
-        foreignKey: 'idPeriodicidad',
-        target_key: 'id'
-      }),
-      Tarea.belongsTo(models.EstadoMantenimiento, {
-        foreignKey: 'idEstadoMantenimiento',
-        target_key: 'id'
-      }),
-      Tarea.belongsTo(models.TipoMantenimiento, {
-        foreignKey: 'idTipoMantenimiento',
-        target_key: 'id'
-      })
+      
       Tarea.belongsToMany(models.OrdenTrabajo, {
         foreignKey: 'idTarea', 
         through: 'Orden_Tarea'
@@ -43,12 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     descripcion: DataTypes.STRING,
     //fechaInicio: DataTypes.DATE,
     //semanaInicial: DataTypes.INTEGER,
-    idPeriodicidad: DataTypes.INTEGER,
-    idEstadoMantenimiento: DataTypes.INTEGER,
-    idTipoMantenimiento: DataTypes.INTEGER,
-    numeroResponsables: DataTypes.INTEGER,
-    horasHombre: DataTypes.INTEGER,
-    costoHora: DataTypes.DECIMAL(10,2),
+    
   }, {
     sequelize,
     modelName: 'Tarea',

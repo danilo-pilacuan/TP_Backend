@@ -6,6 +6,7 @@ router.get("/",controllerOrdenTareas.getOrdenTareas);
 router.get("/:id",controllerOrdenTareas.getOrdenTareasById);
 router.get("/orden/:id",controllerOrdenTareas.findTareasByOrdenId);
 router.post("/",controllerOrdenTareas.createOrdenTarea);
+router.patch("/byot",controllerOrdenTareas.editOrdenTareaByTareaIdOrdenId);
 router.patch("/:id",controllerOrdenTareas.editOrdenTarea);
 router.delete("/byot",controllerOrdenTareas.deleteOrdenTareaByTareaIdOrdenId);
 router.delete("/:id",controllerOrdenTareas.deleteOrdenTarea);

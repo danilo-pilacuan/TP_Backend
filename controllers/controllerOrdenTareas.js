@@ -106,6 +106,22 @@ module.exports = class controllerOrdenTareas {
         })
     }
 
+    static async editOrdenTareaByTareaIdOrdenId(req,res){
+        console.log(req.body)
+        modeloOrdenTarea.update(req.body,{
+            
+            where:{
+                [Op.and]: [{idTarea:req.body.idTarea},{idOrden:req.body.idOrden}]
+                }
+        })
+        .then((data)=>{
+            res.json({resultado:data})
+        })
+        .catch((error)=>{
+            res.json({error:error})
+        })
+    }
+
     static async deleteOrdenTarea(req,res){
         modeloOrdenTarea.destroy({
             where:{id:req.params.id}

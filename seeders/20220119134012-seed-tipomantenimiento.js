@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     return queryInterface.bulkInsert('tipomantenimientos', [
+     return queryInterface.bulkInsert('TipoMantenimientos', [
       {
         descripcion: 'Limpieza',
         createdAt: new Date(),
