@@ -9,6 +9,9 @@ const modeloPeriodicidad = require('../models').Periodicidad;
 const modeloEstadoMantenimiento = require('../models').EstadoMantenimiento;
 const modeloTarea = require('../models').Tarea;
 const modeloImagen = require('../models').Imagen
+const modeloOrdenTrabajo=require('../models').OrdenTrabajo
+const modeloOrdenTarea=require('../models').Orden_Tarea
+const modeloTaller=require('../models').Taller
 
 // const bcrypt = require("bcryptjs");
 // const jwt = require("jsonwebtoken");
@@ -20,7 +23,8 @@ module.exports = class controllerActivos {
                 {model:modeloArea},
                 {model:modeloPrioridad},
                 {model:modeloCategoria,as : 'Categoria'},
-                {model:modeloImagen}
+                {model:modeloImagen},
+                {model:modeloOrdenTrabajo,include:[{model:modeloOrdenTarea,include:[{model:modeloTarea}]},{model:modeloTaller},{model:modeloTrabajador}]},
             ]
         })
         .then((data)=>{
@@ -39,7 +43,8 @@ module.exports = class controllerActivos {
                 {model:modeloArea},
                 {model:modeloPrioridad},
                 {model:modeloCategoria,as : 'Categoria'},
-                {model:modeloImagen}
+                {model:modeloImagen},
+                {model:modeloOrdenTrabajo,include:[{model:modeloOrdenTarea,include:[{model:modeloTarea}]},{model:modeloTaller},{model:modeloTrabajador}]},
             ]
         })
         .then((data)=>{
